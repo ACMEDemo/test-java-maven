@@ -1,0 +1,17 @@
+version: 0.1
+
+environment_variables:
+  plaintext:
+    SRCCLR_API_TOKEN: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDE0NywiZXhwIjoxNTA4NDI4Nzg1LCJhdXRob3JpdGllcyI6IkFHRU5UIiwianRpIjoiZDc1YzljZGUtMmQzMC00YzkzLTk5N2MtOGYwMDE5M2RkZWJkIiwiY2xpZW50X2lkIjoiIiwic2NvcGUiOltdfQ.NyP53HqT4vK0c0xrkSJBNXcg1aJiDhsD6ExR610iM9Ux9kGfmNKzNqj20UZstlVxsQr9uq6AZBabjSBe3tmo_ELFDpGZKQK-m4mSNNhHOxXHd6XTSQajqauEMkavBHuilTX2mTEaqt7Rc0W3OmMUCXr6Du2HdigVQkDjE3Gxo3Y"
+
+phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y maven
+  pre_build:
+    commands:
+      - curl -sSL https://download.sourceclear.com/ci.sh | bash
+  build:
+    commands:
+      - mvn clean install
